@@ -1,0 +1,19 @@
+{
+  "slug": "himalayan-pink-salt",
+  "name": "Khewra Hand-Mined Pink Salt",
+  "region": "asia",
+  "country": "Pakistan",
+  "category": "spices",
+  "price": 16,
+  "currency": "usd",
+  "images": [
+    "https://placehold.co/800x600/e8a0a0/ffffff?text=Himalayan+Pink+Salt"
+  ],
+  "tagline": "250 million years old. Mined by hand in the Khewra salt mine",
+  "description": "This isn't your supermarket Himalayan salt. Hand-mined from the deep chambers of the Khewra mine in the Punjab Salt Range — the world's second largest salt mine, operational since the 13th century — and hand-crushed to a fine grind. The blush pink color comes from trace iron oxide and over 80 trace minerals. Noticeably softer and more complex than sea salt. 16 oz bag with a resealable zip. Use it for finishing dishes, brining, or in a salt grinder.",
+  "story": "The Khewra salt mine has been worked since at least 1200 AD. Today, 3,000 miners go underground each day to extract salt using methods barely changed in centuries. Our supplier is a cooperative of mining families who hand-select and hand-process the finest pink and red salt crystals, rejecting anything that doesn't meet their standard.",
+  "featured": false,
+  "inStock": true,
+  "weight": "1 lb / 454g",
+  "origin": "Khewra, Punjab Salt Range, Pakistan"
+}

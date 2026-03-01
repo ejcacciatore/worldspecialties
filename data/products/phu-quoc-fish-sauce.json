@@ -1,0 +1,19 @@
+{
+  "slug": "phu-quoc-fish-sauce",
+  "name": "Phu Quoc Red Boat Style Fish Sauce",
+  "region": "asia",
+  "country": "Vietnam",
+  "category": "condiments",
+  "price": 22,
+  "currency": "usd",
+  "images": [
+    "https://placehold.co/800x600/8b3a00/ffffff?text=Phu+Quoc+Fish+Sauce"
+  ],
+  "tagline": "Fermented for 18 months on Phu Quoc island",
+  "description": "The world's most celebrated fish sauce comes from Phu Quoc, a Vietnamese island in the Gulf of Thailand where the anchovy-based tradition stretches back 300 years. This first-press extract is made from black anchovies caught in the surrounding waters, layered with sea salt in wooden barrels, and left to ferment for 18 months under the tropical sun. The result is a deeply amber, intensely savory, and surprisingly clean sauce with no fishiness — just pure umami. 40°N protein content. 500ml bottle.",
+  "story": "The Nguyen family has operated a fish sauce factory on Phu Quoc for four generations. Unlike industrial producers who use plastic tanks and 6-month fermentation, they still use their grandfather's ancient wood barrels — each one 60-100 years old and imparting its own unique character to the sauce. Phu Quoc fish sauce has a Protected Geographic Indication status, like Champagne or Parmesan.",
+  "featured": false,
+  "inStock": true,
+  "weight": "500ml / 16.9 oz",
+  "origin": "Phu Quoc Island, Kien Giang Province, Vietnam"
+}

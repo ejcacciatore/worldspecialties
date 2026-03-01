@@ -1,0 +1,19 @@
+{
+  "slug": "greek-hymettus-honey",
+  "name": "Mount Hymettus Wild Thyme Honey",
+  "region": "europe",
+  "country": "Greece",
+  "category": "honey & preserves",
+  "price": 38,
+  "currency": "usd",
+  "images": [
+    "https://placehold.co/800x600/c8860a/ffffff?text=Hymettus+Thyme+Honey"
+  ],
+  "tagline": "Prized since ancient Athens for its rare wild thyme aroma",
+  "description": "Mount Hymettus has been famous for its honey since antiquity — Aristotle wrote about it, and Athenians still consider it the finest honey on earth. The wild thyme that carpets these limestone slopes in May and June creates a honey that is amber, intensely aromatic, and almost medicinal in its floral complexity. Darker and more pungent than most thyme honey. Incredible on cheese, yogurt, drizzled over walnuts, or eaten straight from the spoon. Raw, unfiltered, unheated. 250g jar.",
+  "story": "Kostas Papadimitriou has 200 hives on the eastern slopes of Hymettus, exactly where his great-grandfather kept hives before the Second World War. He follows traditional Greek beekeeping practices — no antibiotics, no sugar feeding, no heating of honey. The harvest is once a year, after the summer thyme flowering. Some years yield more, some less. This is not factory honey.",
+  "featured": false,
+  "inStock": true,
+  "weight": "250g / 8.8 oz",
+  "origin": "Mount Hymettus, Attica, Greece"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "ischia-terracotta-bowl",
+  "name": "Ischia Hand-Thrown Terracotta Bowl",
+  "region": "europe",
+  "country": "Italy",
+  "category": "pottery",
+  "price": 89,
+  "currency": "usd",
+  "images": [
+    "https://placehold.co/800x600/c0764a/ffffff?text=Ischia+Terracotta+Bowl"
+  ],
+  "tagline": "Hand-thrown on the volcanic island of Ischia",
+  "description": "Each bowl is completely unique — shaped by hand on a kick wheel by a third-generation potter whose family has worked the clay of Ischia since 1952. The rich terracotta clay comes from the island's volcanic soil, giving each piece its distinctive warm reddish hue. Fired in a traditional wood kiln, glazed with a food-safe lead-free glaze in sea blues and sandy creams. Perfect for pasta, fruit, or as a statement centerpiece. Slight variations in shape and color are a feature, not a flaw — proof of the human hand that made it.",
+  "story": "On the volcanic island of Ischia, where hydrothermal vents still warm the earth, the Ferrandino family has been shaping clay for three generations. Grandfather Giovanni learned the craft from the monks at the Abbey of San Montano. Today, his granddaughter Lucia carries the tradition forward — each piece still made on the same wooden kick wheel Giovanni built in 1952.",
+  "featured": true,
+  "inStock": true,
+  "weight": "approx. 800g",
+  "origin": "Ischia, Bay of Naples, Italy"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "oaxacan-black-mole-paste",
+  "name": "Oaxacan Black Mole Paste",
+  "region": "americas",
+  "country": "Mexico",
+  "category": "sauces",
+  "price": 28,
+  "currency": "usd",
+  "images": [
+    "https://placehold.co/800x600/2d1b00/ffffff?text=Oaxacan+Black+Mole"
+  ],
+  "tagline": "Six hours, thirty ingredients, one extraordinary mole negro",
+  "description": "Authentic Oaxacan mole negro made from a recipe passed down through five generations in the Valles Centrales. Contains 30+ ingredients including four types of dried chili (mulato, negro, chihuacle, and pasilla), Mexican chocolate, charred tortillas, plantain, toasted nuts, avocado leaf, and secret spices. Six hours of cooking, stirring, and adjusting by taste. One jar makes enough mole sauce for 8-10 people when diluted with chicken or vegetable broth. 12 oz jar.",
+  "story": "Doña Esperanza Cruz learned mole negro from her grandmother at age 7, standing on a wooden stool to reach the clay comal. Today at 62, she runs a small market stall in Etla market, and her mole paste is the worst-kept secret in Oaxaca. Ask any local where to find the real thing — they'll point you to her blue plastic tarp.",
+  "featured": false,
+  "inStock": true,
+  "weight": "12 oz / 340g jar",
+  "origin": "Etla, Oaxaca, Mexico"
+}

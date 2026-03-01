@@ -1,0 +1,19 @@
+{
+  "slug": "japanese-ceremonial-matcha",
+  "name": "Uji Ceremonial Grade Matcha",
+  "region": "asia",
+  "country": "Japan",
+  "category": "coffee & tea",
+  "price": 45,
+  "currency": "usd",
+  "images": [
+    "https://placehold.co/800x600/4a7c59/ffffff?text=Uji+Ceremonial+Matcha"
+  ],
+  "tagline": "Stone-ground in Uji, Japan's ancient tea capital",
+  "description": "First-harvest ceremonial grade matcha from the Uji region of Kyoto — the epicenter of Japanese tea culture for over 800 years. These shade-grown Okumidori leaves are hand-picked in early May, steamed, dried, de-stemmed, and stone-ground in granite mills that run at a glacially slow pace to prevent heat damage. The result is a brilliant emerald powder with a deeply umami, sweet, and almost creamy flavor. Zero bitterness. Extraordinary as a traditional whisked preparation or in lattes. 30g tin.",
+  "story": "The Tanaka family has been growing tea in the Uji valley since the Edo period. Today, fourth-generation tea master Kenji Tanaka oversees every step — from the weeks of shade cloth draped over the plants before harvest (to boost chlorophyll and amino acids) to the final stone-grinding, done in a room kept at a controlled temperature and humidity.",
+  "featured": false,
+  "inStock": true,
+  "weight": "30g",
+  "origin": "Uji, Kyoto Prefecture, Japan"
+}

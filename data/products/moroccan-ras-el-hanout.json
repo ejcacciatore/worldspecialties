@@ -1,0 +1,19 @@
+{
+  "slug": "moroccan-ras-el-hanout",
+  "name": "Fes Market Ras el Hanout",
+  "region": "africa",
+  "country": "Morocco",
+  "category": "spices",
+  "price": 24,
+  "currency": "usd",
+  "images": [
+    "https://placehold.co/800x600/d4a017/ffffff?text=Ras+el+Hanout"
+  ],
+  "tagline": "30 spices blended by hand in the medina of Fes",
+  "description": "Ras el Hanout means 'top of the shop' — the spice merchant's finest blend. This one contains 30 individual spices including rosebuds, dried lavender, cinnamon, coriander, black pepper, turmeric, cardamom, nutmeg, and more — all sourced fresh and ground to order in the Bou Inania neighborhood of Fes. Use it for tagines, couscous, roasted lamb, grilled vegetables, or rub it onto chicken before roasting. The aroma alone will transport you to a Moroccan market at dawn.",
+  "story": "Hassan Benali is the fifth generation of his family to run a spice stall in the Fes medina. His grandfather's handwritten recipe notebook, water-stained and faded, still guides every batch. The spices come from a network of farmers Hassan has known for decades — saffron from the Talaouine plateau, rosebuds from the Dades Valley, peppers from Agadir.",
+  "featured": true,
+  "inStock": true,
+  "weight": "2 oz / 57g",
+  "origin": "Fes el-Bali Medina, Morocco"
+}

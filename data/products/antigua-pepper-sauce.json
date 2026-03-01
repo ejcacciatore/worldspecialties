@@ -1,0 +1,19 @@
+{
+  "slug": "antigua-pepper-sauce",
+  "name": "Antigua Fire & Sunshine Pepper Sauce",
+  "region": "caribbean",
+  "country": "Antigua",
+  "category": "sauces",
+  "price": 18,
+  "currency": "usd",
+  "images": [
+    "https://placehold.co/800x600/e63946/ffffff?text=Antigua+Pepper+Sauce"
+  ],
+  "tagline": "The legendary heat of Antigua, bottled",
+  "description": "Made from sun-ripened Scotch bonnet and Caribbean red peppers grown in the volcanic soil of Antigua, slow-fermented with mango, tamarind, and local citrus. This sauce has won three Caribbean hot sauce championships. Bright, fruity heat with a slow burn. Incredible on grilled fish, jerk chicken, eggs, or anything you want to wake up. 6 oz bottle. Shelf stable, no refrigeration needed until opened.",
+  "story": "Dorothy James has been making pepper sauce in her backyard in St. John's for 35 years. What started as weekend batches for family and neighbors turned into something bigger when her son Carlton entered it in the 2018 Caribbean Food Festival — and won. Today, Dorothy still makes every bottle herself, by hand, with peppers from the same plot of land her grandmother farmed.",
+  "featured": true,
+  "inStock": true,
+  "weight": "6 oz / 170ml",
+  "origin": "St. John's, Antigua"
+}

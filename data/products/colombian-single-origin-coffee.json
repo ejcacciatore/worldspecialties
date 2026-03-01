@@ -1,0 +1,19 @@
+{
+  "slug": "colombian-single-origin-coffee",
+  "name": "Huila Mountain Micro-Lot Coffee",
+  "region": "americas",
+  "country": "Colombia",
+  "category": "coffee & tea",
+  "price": 32,
+  "currency": "usd",
+  "images": [
+    "https://placehold.co/800x600/6b3f2b/ffffff?text=Huila+Coffee"
+  ],
+  "tagline": "Single farm, single harvest, from 1,800 meters altitude",
+  "description": "Grown at 1,800 meters altitude in the Huila department — Colombia's most celebrated coffee-growing region — this washed-process Caturra delivers bright red cherry, brown sugar, and a citrus finish that lingers. Small-batch roasted within 48 hours of your order. 250g bag, whole bean. This coffee scored 88 on the Specialty Coffee Association scale. We work directly with the Ortíz family, cutting out intermediaries and paying 40% above fair trade price.",
+  "story": "Luis Ortíz inherited his father's 3-hectare farm at the age of 19 after a landslide took everything they had. Through a decade of stubborn work, he rebuilt the farm and started experimenting with fermentation and processing techniques he learned from YouTube videos and a scrappy network of neighboring farmers. In 2022, his lot placed third at the Colombia Cup of Excellence.",
+  "featured": true,
+  "inStock": true,
+  "weight": "250g whole bean",
+  "origin": "Huila Department, Colombia"
+}
