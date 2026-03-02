@@ -1,177 +1,119 @@
-import { getAllProducts, CATEGORIES, REGIONS } from "@/lib/products";
-import ProductCard from "@/components/product-card";
-import { SlidersHorizontal } from "lucide-react";
-
-interface ShopPageProps {
-  searchParams: Promise<{ category?: string; region?: string; sort?: string }>;
-}
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Shop",
-  description: "Browse all specialty items from around the world.",
+  description: "Extraordinary specialty goods from around the world — opening soon.",
 };
 
-export default async function ShopPage({ searchParams }: ShopPageProps) {
-  const params = await searchParams;
-  const { category, region, sort } = params;
-
-  let products = getAllProducts();
-
-  // Filter
-  if (category) {
-    products = products.filter(
-      (p) => p.category.toLowerCase() === category.toLowerCase()
-    );
-  }
-  if (region) {
-    products = products.filter(
-      (p) => p.region.toLowerCase() === region.toLowerCase()
-    );
-  }
-
-  // Sort
-  if (sort === "price-asc") products.sort((a, b) => a.price - b.price);
-  else if (sort === "price-desc") products.sort((a, b) => b.price - a.price);
-
-  const activeFilters = [
-    category && `Category: ${category}`,
-    region && `Region: ${REGIONS.find((r) => r.slug === region)?.name || region}`,
-  ].filter(Boolean);
-
+export default function ShopPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Header */}
-      <div className="mb-10">
-        <h1
-          className="text-4xl font-bold text-charcoal mb-2"
-          style={{ fontFamily: "var(--font-display)" }}
+    <div
+      style={{
+        minHeight: "100svh",
+        background: "linear-gradient(160deg, #060f1e 0%, #0a1628 60%, #0d1f3c 100%)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        padding: "120px 24px 80px",
+      }}
+    >
+      <img
+        src="/nQPVp01.svg"
+        alt=""
+        width={52}
+        height={52}
+        style={{
+          filter: "brightness(0) saturate(100%) invert(72%) sepia(64%) saturate(1500%) hue-rotate(5deg) brightness(98%)",
+          marginBottom: 32,
+          opacity: 0.9,
+        }}
+      />
+
+      <p
+        style={{
+          fontSize: "10px",
+          letterSpacing: "0.28em",
+          textTransform: "uppercase",
+          color: "#F59E0B",
+          fontWeight: 600,
+          marginBottom: 20,
+        }}
+      >
+        Coming Soon
+      </p>
+
+      <h1
+        style={{
+          fontFamily: "var(--font-display)",
+          fontSize: "clamp(36px, 6vw, 68px)",
+          fontWeight: 700,
+          color: "#ffffff",
+          lineHeight: 1.08,
+          letterSpacing: "-0.025em",
+          marginBottom: 24,
+          maxWidth: 640,
+        }}
+      >
+        The shop is almost ready.
+      </h1>
+
+      <p
+        style={{
+          fontSize: "17px",
+          color: "rgba(255,255,255,0.45)",
+          lineHeight: 1.75,
+          maxWidth: 460,
+          marginBottom: 48,
+        }}
+      >
+        We&apos;re finalizing our first collection of specialty goods from
+        artisans around the world. Join the waitlist to be first to know when we
+        open.
+      </p>
+
+      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center" }}>
+        <Link
+          href="/#waitlist"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            background: "#F59E0B",
+            color: "#000",
+            padding: "14px 28px",
+            borderRadius: 8,
+            fontSize: "12px",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            fontWeight: 700,
+            textDecoration: "none",
+          }}
         >
-          Shop
-        </h1>
-        <p className="text-charcoal/60">
-          {products.length} item{products.length !== 1 ? "s" : ""}
-          {activeFilters.length > 0 && ` · ${activeFilters.join(" · ")}`}
-        </p>
-      </div>
-
-      <div className="flex flex-col lg:flex-row gap-8">
-        {/* Sidebar filters */}
-        <aside className="lg:w-56 flex-shrink-0">
-          <div className="bg-white rounded-2xl p-6 space-y-8 sticky top-24">
-            <div className="flex items-center gap-2 text-sm font-semibold text-charcoal">
-              <SlidersHorizontal className="w-4 h-4" />
-              Filters
-            </div>
-
-            {/* Category filter */}
-            <div>
-              <p className="text-xs font-semibold text-charcoal/40 uppercase tracking-wider mb-3">
-                Category
-              </p>
-              <div className="space-y-1">
-                <a
-                  href="/shop"
-                  className={`block text-sm py-1 px-2 rounded-lg transition-colors ${
-                    !category
-                      ? "bg-saffron/10 text-saffron font-medium"
-                      : "text-charcoal/60 hover:text-charcoal"
-                  }`}
-                >
-                  All
-                </a>
-                {CATEGORIES.map((cat) => (
-                  <a
-                    key={cat}
-                    href={`/shop?category=${encodeURIComponent(cat)}${region ? `&region=${region}` : ""}`}
-                    className={`block text-sm py-1 px-2 rounded-lg transition-colors capitalize ${
-                      category?.toLowerCase() === cat.toLowerCase()
-                        ? "bg-saffron/10 text-saffron font-medium"
-                        : "text-charcoal/60 hover:text-charcoal"
-                    }`}
-                  >
-                    {cat}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Region filter */}
-            <div>
-              <p className="text-xs font-semibold text-charcoal/40 uppercase tracking-wider mb-3">
-                Region
-              </p>
-              <div className="space-y-1">
-                <a
-                  href={`/shop${category ? `?category=${encodeURIComponent(category)}` : ""}`}
-                  className={`block text-sm py-1 px-2 rounded-lg transition-colors ${
-                    !region
-                      ? "bg-saffron/10 text-saffron font-medium"
-                      : "text-charcoal/60 hover:text-charcoal"
-                  }`}
-                >
-                  All regions
-                </a>
-                {REGIONS.map((reg) => (
-                  <a
-                    key={reg.slug}
-                    href={`/shop?region=${reg.slug}${category ? `&category=${encodeURIComponent(category)}` : ""}`}
-                    className={`block text-sm py-1 px-2 rounded-lg transition-colors ${
-                      region === reg.slug
-                        ? "bg-saffron/10 text-saffron font-medium"
-                        : "text-charcoal/60 hover:text-charcoal"
-                    }`}
-                  >
-                    {reg.emoji} {reg.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </aside>
-
-        {/* Products grid */}
-        <div className="flex-1">
-          {/* Sort bar */}
-          <div className="flex items-center justify-between mb-6">
-            <p className="text-sm text-charcoal/50">
-              Showing {products.length} result{products.length !== 1 ? "s" : ""}
-            </p>
-            <select
-              className="text-sm border border-charcoal/20 rounded-lg px-3 py-2 bg-white text-charcoal focus:outline-none focus:ring-2 focus:ring-saffron"
-              defaultValue={sort || ""}
-              onChange={(e) => {
-                const url = new URL(window.location.href);
-                if (e.target.value) url.searchParams.set("sort", e.target.value);
-                else url.searchParams.delete("sort");
-                window.location.href = url.toString();
-              }}
-            >
-              <option value="">Featured</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-            </select>
-          </div>
-
-          {products.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-charcoal/40 text-lg mb-4">
-                No items found for these filters.
-              </p>
-              <a
-                href="/shop"
-                className="text-sm font-medium text-teal hover:text-coral transition-colors"
-              >
-                Clear filters
-              </a>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-              {products.map((product) => (
-                <ProductCard key={product.slug} product={product} />
-              ))}
-            </div>
-          )}
-        </div>
+          Join the Waitlist <ArrowRight size={13} />
+        </Link>
+        <Link
+          href="/stories"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            background: "rgba(255,255,255,0.06)",
+            color: "rgba(255,255,255,0.7)",
+            padding: "14px 28px",
+            borderRadius: 8,
+            fontSize: "12px",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            fontWeight: 600,
+            textDecoration: "none",
+            border: "1px solid rgba(255,255,255,0.1)",
+          }}
+        >
+          Read Our Stories
+        </Link>
       </div>
     </div>
   );

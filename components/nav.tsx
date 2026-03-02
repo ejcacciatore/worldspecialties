@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ShoppingBag, Globe, Menu, X } from 'lucide-react'
+import { ShoppingBag, Menu, X } from 'lucide-react'
 import { useCartStore } from '@/lib/cart-store'
 
 export default function Nav() {
@@ -31,7 +31,13 @@ export default function Nav() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5" style={{ textDecoration: 'none' }}>
-            <Globe size={20} style={{ color: '#F59E0B' }} />
+            <img
+              src="/nQPVp01.svg"
+              alt=""
+              width={28}
+              height={28}
+              style={{ filter: 'brightness(0) saturate(100%) invert(72%) sepia(64%) saturate(1500%) hue-rotate(5deg) brightness(98%)' }}
+            />
             <span
               style={{
                 fontFamily: 'var(--font-display)',

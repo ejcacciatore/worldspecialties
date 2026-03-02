@@ -62,7 +62,7 @@ export default async function StoryPage({ params }: StoryPageProps) {
   });
 
   return (
-    <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8" style={{ paddingTop: 100, paddingBottom: 80 }}>
       {/* Back link */}
       <Link
         href="/stories"
@@ -130,22 +130,35 @@ export default async function StoryPage({ params }: StoryPageProps) {
       </div>
 
       {/* CTA */}
-      <div className="mt-16 p-8 bg-saffron/5 rounded-3xl border border-saffron/10">
+      <div className="mt-16 p-8 rounded-2xl" style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.15)' }}>
+        <p
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "#F59E0B",
+            fontWeight: 600,
+            marginBottom: 10,
+          }}
+        >
+          Coming Soon
+        </p>
         <h3
           className="text-xl font-bold text-charcoal mb-2"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Explore items from {story.country}
+          Products from {story.country} are on their way.
         </h3>
         <p className="text-charcoal/60 text-sm mb-4">
-          Browse specialty goods from this region, sourced directly from
-          artisans and small producers.
+          We&apos;re sourcing specialty goods from this region now. Join the
+          waitlist to be first to know when they arrive.
         </p>
         <Link
-          href={`/regions/${story.region}`}
+          href="/"
           className="inline-flex items-center gap-2 text-sm font-semibold text-saffron hover:text-coral transition-colors"
+          style={{ textDecoration: "none" }}
         >
-          Shop {story.region} specialties →
+          Join the waitlist →
         </Link>
       </div>
     </article>

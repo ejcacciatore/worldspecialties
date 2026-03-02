@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Globe, Instagram, Facebook, Twitter } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 
 const shopLinks = [
   { href: "/shop?category=spices", label: "Spices" },
@@ -35,15 +35,24 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-saffron rounded-full flex items-center justify-center">
-                <Globe className="w-4 h-4 text-white" />
-              </div>
+            <div className="flex items-center gap-3 mb-5">
+              <img
+                src="/nQPVp01.svg"
+                alt=""
+                width={32}
+                height={32}
+                style={{ filter: 'brightness(0) saturate(100%) invert(72%) sepia(64%) saturate(1500%) hue-rotate(5deg) brightness(98%)' }}
+              />
               <span
-                className="font-display text-xl font-bold text-cream tracking-tight"
-                style={{ fontFamily: "var(--font-display)" }}
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "18px",
+                  fontWeight: 700,
+                  color: "#FDFAF5",
+                  letterSpacing: "0.01em",
+                }}
               >
-                World<span className="text-saffron">Specialties</span>
+                World <span style={{ color: "#F59E0B" }}>Specialties</span>
               </span>
             </div>
             <p className="text-sm text-cream/60 leading-relaxed mb-6">
@@ -65,13 +74,6 @@ export default function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="p-2 text-cream/40 hover:text-saffron transition-colors"
-                aria-label="Twitter/X"
-              >
-                <Twitter className="w-4 h-4" />
               </a>
             </div>
           </div>

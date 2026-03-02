@@ -1,6 +1,6 @@
 import { getAllStories } from "@/lib/mdx";
 import StoryCard from "@/components/story-card";
-import { BookOpen } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Stories",
@@ -12,38 +12,86 @@ export default function StoriesPage() {
   const stories = getAllStories();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Header */}
-      <div className="max-w-2xl mb-16">
-        <div className="flex items-center gap-2 text-saffron text-sm font-semibold uppercase tracking-widest mb-4">
-          <BookOpen className="w-4 h-4" />
-          <span>Our stories</span>
+    <>
+      {/* ── Hero header — dark editorial ────────────────────────── */}
+      <div
+        style={{
+          background: "linear-gradient(160deg, #060f1e 0%, #0a1628 60%, #0d1f3c 100%)",
+          paddingTop: 68, // nav height
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
+          <p
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: "#F59E0B",
+              fontWeight: 600,
+              marginBottom: 20,
+            }}
+          >
+            World Specialties Editorial
+          </p>
+          <h1
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(36px, 6vw, 74px)",
+              fontWeight: 700,
+              color: "#ffffff",
+              lineHeight: 1.05,
+              letterSpacing: "-0.025em",
+              marginBottom: 20,
+              maxWidth: 760,
+            }}
+          >
+            Craft, Culture &<br />
+            <span style={{ color: "#F59E0B" }}>the People Behind</span>
+            <br />
+            the Products.
+          </h1>
+          <p
+            style={{
+              fontSize: "16px",
+              color: "rgba(255,255,255,0.5)",
+              lineHeight: 1.75,
+              maxWidth: 520,
+            }}
+          >
+            We travel to the source, meet the makers, and bring their stories
+            back. Every purchase supports a craftsperson.
+          </p>
         </div>
-        <h1
-          className="text-5xl font-bold text-charcoal mb-6 leading-tight"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          Craft, Culture & the People Behind the Products
-        </h1>
-        <p className="text-charcoal/60 text-lg leading-relaxed">
-          Every item on World Specialties has a story. We travel to the source,
-          meet the makers, and bring those stories back. Because knowing where
-          something came from makes it taste, feel, and mean more.
-        </p>
       </div>
 
-      {/* Stories grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {stories.map((story) => (
-          <StoryCard key={story.slug} story={story} />
-        ))}
-      </div>
-
-      {stories.length === 0 && (
-        <div className="text-center py-20 text-charcoal/40">
-          No stories yet. Check back soon.
+      {/* ── Stories grid ────────────────────────────────────────── */}
+      <div
+        style={{ background: "#0a1628" }}
+        className="pb-24 md:pb-32"
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          {stories.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {stories.map((story) => (
+                <StoryCard key={story.slug} story={story} />
+              ))}
+            </div>
+          ) : (
+            <div
+              style={{
+                textAlign: "center",
+                padding: "80px 0",
+                color: "rgba(255,255,255,0.25)",
+                fontSize: "14px",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+              }}
+            >
+              Stories coming soon.
+            </div>
+          )}
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 }
