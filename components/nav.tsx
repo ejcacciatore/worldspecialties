@@ -1,104 +1,142 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import Link from "next/link";
-import { ShoppingBag, Menu, X, Globe } from "lucide-react";
-import { useCartStore } from "@/lib/cart-store";
-
-const navLinks = [
-  { href: "/shop", label: "Shop" },
-  { href: "/stories", label: "Stories" },
-  { href: "/become-a-vendor", label: "Become a Vendor" },
-];
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { ShoppingBag, Globe, Menu, X } from 'lucide-react'
+import { useCartStore } from '@/lib/cart-store'
 
 export default function Nav() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const { count, openCart } = useCartStore();
-  const cartCount = count();
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const { count, openCart } = useCartStore()
+  const cartCount = count()
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-charcoal/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <>
+      <nav
+        className="fixed top-0 left-0 right-0 z-30 transition-all duration-500"
+        style={{
+          background: scrolled ? 'rgba(8, 18, 38, 0.97)' : 'transparent',
+          borderBottom: `1px solid ${scrolled ? 'rgba(245,158,11,0.12)' : 'transparent'}`,
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        }}
+      >
+        <div className="flex items-center justify-between px-6 md:px-12" style={{ height: 68 }}>
+
           {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2 group"
-            onClick={() => setMobileOpen(false)}
-          >
-            <div className="w-8 h-8 bg-saffron rounded-full flex items-center justify-center">
-              <Globe className="w-4 h-4 text-white" />
-            </div>
+          <Link href="/" className="flex items-center gap-2.5" style={{ textDecoration: 'none' }}>
+            <Globe size={20} style={{ color: '#F59E0B' }} />
             <span
-              className="font-display text-xl font-bold text-charcoal tracking-tight"
-              style={{ fontFamily: "var(--font-display)" }}
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '16px',
+                fontWeight: 700,
+                color: '#ffffff',
+                letterSpacing: '0.02em',
+              }}
             >
-              World<span className="text-saffron">Specialties</span>
+              World Specialties
             </span>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-8">
+            {[
+              { href: '/shop', label: 'Shop' },
+              { href: '/stories', label: 'Stories' },
+              { href: '/become-a-vendor', label: 'Vendors' },
+            ].map(({ href, label }) => (
               <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-charcoal/70 hover:text-charcoal transition-colors"
+                key={href}
+                href={href}
+                style={{
+                  color: 'rgba(255,255,255,0.7)',
+                  textDecoration: 'none',
+                  fontSize: '12px',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  fontWeight: 500,
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={e => ((e.target as HTMLElement).style.color = '#F59E0B')}
+                onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}
               >
-                {link.label}
+                {label}
               </Link>
             ))}
-          </nav>
+          </div>
 
-          {/* Right side actions */}
-          <div className="flex items-center gap-3">
-            {/* Cart button */}
+          {/* Right */}
+          <div className="flex items-center gap-4">
             <button
               onClick={openCart}
-              className="relative p-2 text-charcoal hover:text-saffron transition-colors"
+              className="relative transition-opacity hover:opacity-75"
               aria-label="Open cart"
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingBag size={20} color="#ffffff" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-coral text-white text-xs font-bold rounded-full flex items-center justify-center">
-                  {cartCount > 9 ? "9+" : cartCount}
+                <span
+                  className="absolute flex items-center justify-center rounded-full"
+                  style={{
+                    top: -6, right: -6, width: 17, height: 17,
+                    background: '#F59E0B', color: '#000',
+                    fontSize: '9px', fontWeight: 700,
+                  }}
+                >
+                  {cartCount > 9 ? '9+' : cartCount}
                 </span>
               )}
             </button>
 
-            {/* Mobile menu toggle */}
             <button
+              className="md:hidden p-1"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-charcoal"
               aria-label="Toggle menu"
             >
-              {mobileOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
+              {mobileOpen ? <X size={20} color="#fff" /> : <Menu size={20} color="#fff" />}
             </button>
           </div>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-cream border-t border-charcoal/10">
-          <div className="px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
+        <div
+          className="fixed inset-0 z-20 flex flex-col pt-20 px-8 pb-8 md:hidden"
+          style={{ background: 'rgba(8, 18, 38, 0.98)', backdropFilter: 'blur(20px)' }}
+        >
+          <div className="flex flex-col gap-7 mt-10">
+            {[
+              { href: '/', label: 'Home' },
+              { href: '/shop', label: 'Shop the World' },
+              { href: '/stories', label: 'Stories' },
+              { href: '/become-a-vendor', label: 'Become a Vendor' },
+            ].map(({ href, label }) => (
               <Link
-                key={link.href}
-                href={link.href}
-                className="block py-2 text-base font-medium text-charcoal/70 hover:text-charcoal"
+                key={href}
+                href={href}
                 onClick={() => setMobileOpen(false)}
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '32px',
+                  color: '#fff',
+                  textDecoration: 'none',
+                  fontWeight: 700,
+                  lineHeight: 1,
+                }}
               >
-                {link.label}
+                {label}
               </Link>
             ))}
           </div>
         </div>
       )}
-    </header>
-  );
+    </>
+  )
 }
