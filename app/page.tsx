@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, Truck, Shield, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getAllProducts } from "@/lib/products";
 import { getAllStories } from "@/lib/mdx";
 import StoryCard from "@/components/story-card";
 import GlobeHeroSection from "@/components/globe-hero-section";
-import NotifyForm from "@/components/notify-form";
 
 export default function HomePage() {
   const allProducts = getAllProducts();
@@ -12,14 +11,82 @@ export default function HomePage() {
 
   return (
     <>
-      {/* GLOBE HERO — full screen, dark navy, interactive */}
+      {/* ── GLOBE HERO — full screen, interactive ────────────────── */}
       <GlobeHeroSection products={allProducts} />
 
-      {/* STORIES — dark navy continuation from globe */}
+      {/* ── MISSION STATEMENT — OceanX stark white reveal ─────────── */}
+      <section
+        style={{ background: "#ffffff" }}
+        className="py-28 md:py-36"
+      >
+        <div className="max-w-5xl mx-auto px-6 md:px-12 text-center">
+          <p
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: "#F59E0B",
+              fontWeight: 600,
+              marginBottom: 28,
+            }}
+          >
+            Our mission
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(32px, 5vw, 58px)",
+              fontWeight: 700,
+              color: "#0a1628",
+              lineHeight: 1.12,
+              letterSpacing: "-0.02em",
+              marginBottom: 32,
+            }}
+          >
+            A world where every extraordinary
+            <br className="hidden md:block" /> thing finds its way to your door.
+          </h2>
+          <p
+            style={{
+              fontSize: "17px",
+              color: "#64748b",
+              lineHeight: 1.75,
+              maxWidth: 620,
+              margin: "0 auto 40px",
+            }}
+          >
+            We travel the world to find artisans, small producers, and makers
+            of exceptional things — and we bring their work directly to you.
+            Every product carries a story. Every purchase supports a craftsperson.
+          </p>
+          <Link
+            href="/stories"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "#0a1628",
+              color: "#ffffff",
+              padding: "14px 32px",
+              borderRadius: 8,
+              fontSize: "12px",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              fontWeight: 600,
+              textDecoration: "none",
+              transition: "background 0.2s",
+            }}
+          >
+            Read the Stories <ArrowRight size={14} />
+          </Link>
+        </div>
+      </section>
+
+      {/* ── STORIES — editorial grid on dark ──────────────────────── */}
       <section
         id="stories"
         style={{ background: "#0a1628" }}
-        className="py-28"
+        className="py-24 md:py-32"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex items-end justify-between mb-14">
@@ -31,7 +98,7 @@ export default function HomePage() {
                   textTransform: "uppercase",
                   color: "#F59E0B",
                   fontWeight: 600,
-                  marginBottom: 12,
+                  marginBottom: 14,
                 }}
               >
                 While you wait
@@ -39,70 +106,49 @@ export default function HomePage() {
               <h2
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(28px, 4vw, 42px)",
+                  fontSize: "clamp(28px, 4vw, 46px)",
                   fontWeight: 700,
                   color: "#ffffff",
-                  lineHeight: 1.1,
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.02em",
                 }}
               >
-                Read the Stories
+                Stories &amp; Craft
               </h2>
-              <p
-                style={{
-                  color: "#94a3b8",
-                  fontSize: "15px",
-                  marginTop: 10,
-                  maxWidth: 480,
-                  lineHeight: 1.65,
-                }}
-              >
-                Every product we carry has a story — of the hands that made it,
-                the land it came from, and the tradition it carries forward.
-              </p>
             </div>
             <Link
               href="/stories"
-              className="hidden sm:flex items-center gap-2 transition-colors"
+              className="hidden sm:flex items-center gap-2"
               style={{
-                color: "rgba(255,255,255,0.4)",
-                fontSize: "12px",
-                letterSpacing: "0.08em",
+                color: "rgba(255,255,255,0.35)",
+                fontSize: "11px",
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 textDecoration: "none",
+                fontWeight: 500,
               }}
             >
-              All stories <ArrowRight className="w-3.5 h-3.5" />
+              All stories <ArrowRight size={13} />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {stories.map((story) => (
               <StoryCard key={story.slug} story={story} />
             ))}
           </div>
-
-          <div className="mt-10 text-center md:hidden">
-            <Link
-              href="/stories"
-              className="inline-flex items-center gap-2 text-sm"
-              style={{ color: "#F59E0B", textDecoration: "none" }}
-            >
-              All stories <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* NOTIFY / FEEDBACK — be first to know */}
+      {/* ── BECOME A VENDOR ────────────────────────────────────────── */}
       <section
         style={{
-          background: "linear-gradient(160deg, #060f1e 0%, #0d1f3c 100%)",
-          borderTop: "1px solid rgba(245,158,11,0.1)",
+          background: "linear-gradient(135deg, #064e3b 0%, #065f46 100%)",
         }}
         className="py-28"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
             <p
               style={{
                 fontSize: "10px",
@@ -110,105 +156,110 @@ export default function HomePage() {
                 textTransform: "uppercase",
                 color: "#F59E0B",
                 fontWeight: 600,
-                marginBottom: 12,
+                marginBottom: 20,
               }}
             >
-              Be the first to know
+              Partner with us
             </p>
             <h2
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(28px, 4vw, 42px)",
+                fontSize: "clamp(32px, 5vw, 60px)",
                 fontWeight: 700,
                 color: "#ffffff",
-                lineHeight: 1.1,
-                marginBottom: 16,
+                lineHeight: 1.05,
+                letterSpacing: "-0.02em",
+                marginBottom: 24,
               }}
             >
-              We&apos;re almost ready.
+              Do you make something
               <br />
-              <span style={{ color: "#F59E0B" }}>Tell us what you think.</span>
+              <span style={{ color: "#F59E0B" }}>extraordinary?</span>
             </h2>
             <p
               style={{
-                color: "#94a3b8",
-                fontSize: "15px",
-                lineHeight: 1.7,
-                marginBottom: 36,
-                maxWidth: 440,
+                fontSize: "17px",
+                color: "rgba(255,255,255,0.62)",
+                lineHeight: 1.75,
+                maxWidth: 540,
+                marginBottom: 40,
               }}
             >
-              Drop your email and share any thoughts — we read every single one.
-              You&apos;ll be the first to know the moment we open.
-            </p>
-            <NotifyForm />
-          </div>
-        </div>
-      </section>
-
-      {/* BECOME A VENDOR CTA */}
-      <section className="py-28 bg-forest">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold text-saffron uppercase tracking-widest mb-5">
-              Partner with us
-            </p>
-            <h2
-              className="text-4xl sm:text-5xl font-bold text-cream mb-6 leading-tight"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Do you make something extraordinary?
-            </h2>
-            <p className="text-cream/70 text-lg mb-10 leading-relaxed max-w-2xl">
               We handle the storefront, the marketing, and the customers. You
               focus on making exceptional products. If you produce specialty
               goods from anywhere in the world, we want to hear your story.
             </p>
             <Link
               href="/become-a-vendor"
-              className="inline-flex items-center gap-2 bg-saffron hover:bg-amber-500 text-white font-semibold px-8 py-4 rounded-xl transition-all text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                background: "#F59E0B",
+                color: "#000",
+                padding: "16px 36px",
+                borderRadius: 8,
+                fontSize: "12px",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                fontWeight: 700,
+                textDecoration: "none",
+              }}
             >
-              Apply to Become a Vendor
-              <ArrowRight className="w-4 h-4" />
+              Apply to Become a Vendor <ArrowRight size={14} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* VALUE PROPS */}
-      <section className="py-20 bg-white border-t border-charcoal/5">
+      {/* ── VALUE PROPS — clean white ──────────────────────────────── */}
+      <section style={{ background: "#fafafa" }} className="py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
-            <div>
-              <div className="w-12 h-12 bg-saffron/10 rounded-full flex items-center justify-center mx-auto mb-5">
-                <Star className="w-5 h-5 text-saffron" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 text-center">
+            {[
+              {
+                label: "Sourced Directly",
+                body: "We work directly with artisans and small producers — no intermediaries, better prices, more money to the maker.",
+                accent: "#F59E0B",
+              },
+              {
+                label: "Authenticity Guaranteed",
+                body: "Every product is verified for origin and authenticity. We visit producers and stand behind everything we sell.",
+                accent: "#0D9488",
+              },
+              {
+                label: "Ships Worldwide",
+                body: "Our fulfillment partners ship from source to door with careful packaging and full tracking.",
+                accent: "#F97316",
+              },
+            ].map(({ label, body, accent }) => (
+              <div key={label}>
+                <div
+                  style={{
+                    width: 3,
+                    height: 32,
+                    background: accent,
+                    margin: "0 auto 20px",
+                    borderRadius: 2,
+                  }}
+                />
+                <h3
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: 700,
+                    color: "#0a1628",
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                    marginBottom: 12,
+                  }}
+                >
+                  {label}
+                </h3>
+                <p style={{ fontSize: "14px", color: "#64748b", lineHeight: 1.7 }}>
+                  {body}
+                </p>
               </div>
-              <h3 className="font-semibold text-charcoal mb-2">Sourced Directly</h3>
-              <p className="text-sm text-charcoal/55 leading-relaxed">
-                We work directly with artisans and small producers — no intermediaries,
-                better prices, more money to the maker.
-              </p>
-            </div>
-            <div>
-              <div className="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-5">
-                <Shield className="w-5 h-5 text-teal" />
-              </div>
-              <h3 className="font-semibold text-charcoal mb-2">Authenticity Guaranteed</h3>
-              <p className="text-sm text-charcoal/55 leading-relaxed">
-                Every product is verified for origin and authenticity. We visit
-                producers and stand behind every item we sell.
-              </p>
-            </div>
-            <div>
-              <div className="w-12 h-12 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-5">
-                <Truck className="w-5 h-5 text-coral" />
-              </div>
-              <h3 className="font-semibold text-charcoal mb-2">Ships Worldwide</h3>
-              <p className="text-sm text-charcoal/55 leading-relaxed">
-                Our fulfillment partners ship from the source to your door with
-                careful packaging and full tracking.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>

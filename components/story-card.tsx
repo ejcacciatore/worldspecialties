@@ -10,53 +10,109 @@ export default function StoryCard({ story }: StoryCardProps) {
   const formattedDate = new Date(story.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
-    day: "numeric",
   });
 
   return (
     <Link
       href={`/stories/${story.slug}`}
-      className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+      className="group block relative overflow-hidden"
+      style={{ borderRadius: 12, textDecoration: "none" }}
     >
-      {/* Image */}
-      <div className="relative aspect-[16/9] overflow-hidden bg-charcoal/5">
+      {/* Full-bleed image — 3:4 portrait ratio, editorial magazine style */}
+      <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
         <Image
           src={story.coverImage}
           alt={story.title}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        <div className="absolute top-3 left-3">
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/90 text-charcoal capitalize">
+
+        {/* Gradient — dark at bottom for text legibility */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.18) 40%, rgba(0,0,0,0.88) 100%)",
+          }}
+        />
+
+        {/* Region badge — top left */}
+        <div className="absolute top-4 left-4">
+          <span
+            style={{
+              fontSize: "9px",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              fontWeight: 700,
+              color: "#F59E0B",
+              background: "rgba(6,15,30,0.75)",
+              backdropFilter: "blur(8px)",
+              border: "1px solid rgba(245,158,11,0.3)",
+              padding: "4px 10px",
+              borderRadius: 4,
+            }}
+          >
             {story.region} · {story.country}
           </span>
         </div>
-      </div>
 
-      {/* Content */}
-      <div className="p-5">
-        <p className="text-xs text-charcoal/40 mb-2">
-          {formattedDate} · {story.author}
-        </p>
-        <h3
-          className="font-display text-xl font-semibold text-charcoal mb-3 leading-snug group-hover:text-saffron transition-colors"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          {story.title}
-        </h3>
-        <p className="text-sm text-charcoal/60 line-clamp-3 mb-4">
-          {story.excerpt}
-        </p>
-        <div className="flex items-center gap-2 flex-wrap">
-          {story.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="text-xs px-2 py-0.5 rounded-full bg-saffron/10 text-saffron font-medium"
-            >
-              {tag}
-            </span>
-          ))}
+        {/* Text content over image */}
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <p
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.42)",
+              marginBottom: 10,
+              fontWeight: 500,
+            }}
+          >
+            {formattedDate} · {story.author}
+          </p>
+
+          <h3
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(18px, 2vw, 23px)",
+              fontWeight: 700,
+              color: "#ffffff",
+              lineHeight: 1.18,
+              letterSpacing: "-0.01em",
+              marginBottom: 10,
+            }}
+          >
+            {story.title}
+          </h3>
+
+          <p
+            style={{
+              fontSize: "13px",
+              color: "rgba(255,255,255,0.5)",
+              lineHeight: 1.6,
+              overflow: "hidden",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical" as const,
+              marginBottom: 14,
+            }}
+          >
+            {story.excerpt}
+          </p>
+
+          <span
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              fontWeight: 700,
+              color: "#F59E0B",
+              transition: "opacity 0.3s",
+            }}
+          >
+            Read Story →
+          </span>
         </div>
       </div>
     </Link>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import CartDrawer from "@/components/cart-drawer";
+import SmoothScroll from "@/components/smooth-scroll";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="bg-cream text-charcoal antialiased min-h-screen flex flex-col">
+        <SmoothScroll />
         <Nav />
         <CartDrawer />
         <main className="flex-1">{children}</main>
