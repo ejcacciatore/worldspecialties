@@ -1,14 +1,13 @@
 import Link from "next/link";
 import { ArrowRight, Truck, Shield, Star } from "lucide-react";
-import { getAllProducts, getFeaturedProducts } from "@/lib/products";
+import { getAllProducts } from "@/lib/products";
 import { getAllStories } from "@/lib/mdx";
-import ProductCard from "@/components/product-card";
 import StoryCard from "@/components/story-card";
 import GlobeHeroSection from "@/components/globe-hero-section";
+import NotifyForm from "@/components/notify-form";
 
 export default function HomePage() {
   const allProducts = getAllProducts();
-  const featuredProducts = getFeaturedProducts().slice(0, 4);
   const stories = getAllStories().slice(0, 3);
 
   return (
@@ -16,8 +15,9 @@ export default function HomePage() {
       {/* GLOBE HERO — full screen, dark navy, interactive */}
       <GlobeHeroSection products={allProducts} />
 
-      {/* FEATURED PRODUCTS — continues dark navy from globe fade */}
+      {/* STORIES — dark navy continuation from globe */}
       <section
+        id="stories"
         style={{ background: "#0a1628" }}
         className="py-28"
       >
@@ -34,7 +34,7 @@ export default function HomePage() {
                   marginBottom: 12,
                 }}
               >
-                Hand-picked
+                While you wait
               </p>
               <h2
                 style={{
@@ -45,65 +45,33 @@ export default function HomePage() {
                   lineHeight: 1.1,
                 }}
               >
-                Featured This Week
+                Read the Stories
               </h2>
-            </div>
-            <Link
-              href="/shop"
-              className="hidden sm:flex items-center gap-2 text-sm font-medium transition-colors"
-              style={{ color: "rgba(255,255,255,0.45)", fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase" }}
-              onMouseEnter={undefined}
-            >
-              View all <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.slug} product={product} />
-            ))}
-          </div>
-
-          <div className="mt-10 text-center sm:hidden">
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-2 text-sm"
-              style={{ color: "#F59E0B" }}
-            >
-              View all items <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* TRANSITION BAND — dark navy to cream */}
-      <div
-        style={{
-          height: 120,
-          background: "linear-gradient(to bottom, #0a1628, #FDFAF5)",
-        }}
-      />
-
-      {/* STORIES — cream */}
-      <section className="py-24 bg-cream -mt-1">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex items-end justify-between mb-14">
-            <div>
-              <p className="text-sm font-semibold text-saffron uppercase tracking-widest mb-3">
-                Behind the product
-              </p>
-              <h2
-                className="text-4xl font-bold text-charcoal"
-                style={{ fontFamily: "var(--font-display)" }}
+              <p
+                style={{
+                  color: "#94a3b8",
+                  fontSize: "15px",
+                  marginTop: 10,
+                  maxWidth: 480,
+                  lineHeight: 1.65,
+                }}
               >
-                Stories &amp; Craft
-              </h2>
+                Every product we carry has a story — of the hands that made it,
+                the land it came from, and the tradition it carries forward.
+              </p>
             </div>
             <Link
               href="/stories"
-              className="hidden sm:flex items-center gap-2 text-sm font-medium text-teal hover:text-coral transition-colors"
+              className="hidden sm:flex items-center gap-2 transition-colors"
+              style={{
+                color: "rgba(255,255,255,0.4)",
+                fontSize: "12px",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+              }}
             >
-              All stories <ArrowRight className="w-4 h-4" />
+              All stories <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
@@ -111,6 +79,69 @@ export default function HomePage() {
             {stories.map((story) => (
               <StoryCard key={story.slug} story={story} />
             ))}
+          </div>
+
+          <div className="mt-10 text-center md:hidden">
+            <Link
+              href="/stories"
+              className="inline-flex items-center gap-2 text-sm"
+              style={{ color: "#F59E0B", textDecoration: "none" }}
+            >
+              All stories <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* NOTIFY / FEEDBACK — be first to know */}
+      <section
+        style={{
+          background: "linear-gradient(160deg, #060f1e 0%, #0d1f3c 100%)",
+          borderTop: "1px solid rgba(245,158,11,0.1)",
+        }}
+        className="py-28"
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="max-w-2xl">
+            <p
+              style={{
+                fontSize: "10px",
+                letterSpacing: "0.25em",
+                textTransform: "uppercase",
+                color: "#F59E0B",
+                fontWeight: 600,
+                marginBottom: 12,
+              }}
+            >
+              Be the first to know
+            </p>
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(28px, 4vw, 42px)",
+                fontWeight: 700,
+                color: "#ffffff",
+                lineHeight: 1.1,
+                marginBottom: 16,
+              }}
+            >
+              We&apos;re almost ready.
+              <br />
+              <span style={{ color: "#F59E0B" }}>Tell us what you think.</span>
+            </h2>
+            <p
+              style={{
+                color: "#94a3b8",
+                fontSize: "15px",
+                lineHeight: 1.7,
+                marginBottom: 36,
+                maxWidth: 440,
+              }}
+            >
+              Drop your email and share any thoughts — we read every single one.
+              You&apos;ll be the first to know the moment we open.
+            </p>
+            <NotifyForm />
           </div>
         </div>
       </section>

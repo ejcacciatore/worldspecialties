@@ -123,33 +123,22 @@ export default function RegionPanel({ region, locationLabel, products, onClose }
                 style={{ color: '#F59E0B', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 500 }}
               >
                 <ShoppingBag size={11} />
-                <span>Available from {meta.name}</span>
+                <span>Coming soon from {meta.name}</span>
               </div>
 
               {products.length === 0 ? (
                 <p style={{ color: '#475569', fontSize: '14px' }}>
-                  No products from this region yet — check back soon.
+                  We&apos;re sourcing something special from this region — check back soon.
                 </p>
               ) : (
                 <div className="flex flex-col gap-3">
                   {products.slice(0, 5).map((product) => (
-                    <Link
+                    <div
                       key={product.slug}
-                      href={`/shop/${product.slug}`}
-                      onClick={onClose}
-                      className="flex gap-3 p-3 rounded-xl group transition-all duration-200"
+                      className="flex gap-3 p-3 rounded-xl"
                       style={{
                         background: 'rgba(255,255,255,0.04)',
                         border: '1px solid rgba(255,255,255,0.07)',
-                        textDecoration: 'none',
-                      }}
-                      onMouseEnter={e => {
-                        (e.currentTarget as HTMLElement).style.background = 'rgba(245,158,11,0.08)'
-                        ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(245,158,11,0.25)'
-                      }}
-                      onMouseLeave={e => {
-                        (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)'
-                        ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.07)'
                       }}
                     >
                       <div
@@ -168,15 +157,28 @@ export default function RegionPanel({ region, locationLabel, products, onClose }
                         </div>
                         <div
                           className="truncate"
-                          style={{ fontSize: '13px', color: '#f1f5f9', fontWeight: 500, lineHeight: 1.35, marginBottom: 4 }}
+                          style={{ fontSize: '13px', color: '#f1f5f9', fontWeight: 500, lineHeight: 1.35, marginBottom: 6 }}
                         >
                           {product.name}
                         </div>
-                        <div style={{ fontSize: '15px', color: '#F59E0B', fontWeight: 600 }}>
-                          ${product.price}
-                        </div>
+                        <span
+                          style={{
+                            display: 'inline-block',
+                            background: 'rgba(245,158,11,0.1)',
+                            border: '1px solid rgba(245,158,11,0.2)',
+                            color: '#F59E0B',
+                            fontSize: '9px',
+                            letterSpacing: '0.12em',
+                            textTransform: 'uppercase',
+                            fontWeight: 600,
+                            padding: '3px 8px',
+                            borderRadius: 4,
+                          }}
+                        >
+                          Coming Soon
+                        </span>
                       </div>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               )}
@@ -185,7 +187,7 @@ export default function RegionPanel({ region, locationLabel, products, onClose }
             {/* Footer CTA */}
             <div className="flex-shrink-0 p-7 pt-0">
               <Link
-                href={`/regions/${region}`}
+                href="/stories"
                 onClick={onClose}
                 className="flex items-center justify-center w-full py-3.5 rounded-xl font-medium transition-all duration-200"
                 style={{
@@ -197,7 +199,7 @@ export default function RegionPanel({ region, locationLabel, products, onClose }
                   letterSpacing: '0.04em',
                 }}
               >
-                Explore all from {meta.name} →
+                Read the Stories →
               </Link>
             </div>
           </>

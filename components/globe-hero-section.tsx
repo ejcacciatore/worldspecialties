@@ -91,7 +91,7 @@ export default function GlobeHeroSection({ products }: Props) {
 
         {/* Hero text overlay */}
         <div
-          className="absolute bottom-20 left-0 px-8 md:px-16 max-w-xl pointer-events-none"
+          className="absolute bottom-20 left-0 px-8 md:px-16 max-w-xl"
           style={{
             opacity: globeLoaded ? 1 : 0,
             transform: globeLoaded ? 'translateY(0)' : 'translateY(20px)',
@@ -108,36 +108,56 @@ export default function GlobeHeroSection({ products }: Props) {
               fontWeight: 600,
             }}
           >
-            World Specialties
+            Coming Soon
           </div>
           <h1
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(32px, 5vw, 56px)',
+              fontSize: 'clamp(30px, 4.5vw, 52px)',
               fontWeight: 700,
               color: '#ffffff',
               lineHeight: 1.08,
               marginBottom: 16,
             }}
           >
-            Extraordinary things
+            Something extraordinary
             <br />
-            <span style={{ color: '#F59E0B' }}>from the world&apos;s</span>
-            <br />
-            most special places.
+            <span style={{ color: '#F59E0B' }}>is almost here.</span>
           </h1>
           <p
             style={{
               fontSize: '14px',
               color: '#94a3b8',
               lineHeight: 1.7,
-              maxWidth: 320,
+              maxWidth: 340,
+              marginBottom: 24,
             }}
           >
-            Spin the globe. Click a glowing dot.
+            Spin the globe. Explore the world&apos;s most special places.
             <br />
-            Discover something remarkable.
+            Read the stories behind each product — and be the first to know when we launch.
           </p>
+          <a
+            href="#stories"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              background: 'rgba(245,158,11,0.12)',
+              border: '1px solid rgba(245,158,11,0.4)',
+              color: '#F59E0B',
+              padding: '10px 20px',
+              borderRadius: 8,
+              fontSize: '12px',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              fontWeight: 600,
+              textDecoration: 'none',
+              transition: 'background 0.2s',
+            }}
+          >
+            Explore the Stories ↓
+          </a>
         </div>
 
         {/* Scroll indicator */}
