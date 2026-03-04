@@ -93,6 +93,35 @@ export default function GlobeHeroSection({ products }: Props) {
           background: 'linear-gradient(160deg, #060f1e 0%, #0a1628 50%, #0d1f3c 100%)',
         }}
       >
+        {/* Background video — cinematic texture behind everything */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: 0.15,
+            zIndex: 0,
+            pointerEvents: 'none',
+          }}
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark overlay to blend video into navy atmosphere */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(160deg, rgba(6,15,30,0.7) 0%, rgba(10,22,40,0.5) 50%, rgba(13,31,60,0.7) 100%)',
+            zIndex: 1,
+          }}
+        />
+
         {/* Globe */}
         <div
           style={{
@@ -100,6 +129,7 @@ export default function GlobeHeroSection({ products }: Props) {
             inset: 0,
             opacity: globeLoaded ? 1 : 0,
             transition: 'opacity 1.8s ease-out',
+            zIndex: 2,
           }}
         >
           <GlobeScene onRegionClick={handleRegionClick} onGlobeClick={handleGlobeClick} />
@@ -111,6 +141,7 @@ export default function GlobeHeroSection({ products }: Props) {
           style={{
             background:
               'radial-gradient(ellipse at 20% 80%, rgba(245,158,11,0.05) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(56,189,248,0.04) 0%, transparent 50%)',
+            zIndex: 3,
           }}
         />
 
@@ -120,6 +151,7 @@ export default function GlobeHeroSection({ products }: Props) {
           style={{
             height: 240,
             background: 'linear-gradient(to bottom, transparent, #0a1628)',
+            zIndex: 3,
           }}
         />
 
@@ -147,6 +179,7 @@ export default function GlobeHeroSection({ products }: Props) {
             opacity: globeLoaded ? 1 : 0,
             transform: globeLoaded ? 'translateY(0)' : 'translateY(28px)',
             transition: 'opacity 1.4s ease-out 0.5s, transform 1.4s ease-out 0.5s',
+            zIndex: 10,
           }}
         >
           {/* Eyebrow */}
