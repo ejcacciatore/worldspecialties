@@ -105,7 +105,7 @@ export default function GlobeHeroSection({ products }: Props) {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            opacity: 0.15,
+            opacity: 0.35,
             zIndex: 0,
             pointerEvents: 'none',
           }}
@@ -117,7 +117,7 @@ export default function GlobeHeroSection({ products }: Props) {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(160deg, rgba(6,15,30,0.7) 0%, rgba(10,22,40,0.5) 50%, rgba(13,31,60,0.7) 100%)',
+            background: 'linear-gradient(160deg, rgba(6,15,30,0.5) 0%, rgba(10,22,40,0.3) 50%, rgba(13,31,60,0.5) 100%)',
             zIndex: 1,
           }}
         />
